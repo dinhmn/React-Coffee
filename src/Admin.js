@@ -5,11 +5,13 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/Sidebar/Topbar";
 import { Route, Routes } from "react-router-dom";
 import UpdateCategory from "./components/admin/category/UpdateCategory";
-import Nav from "./components/Nav";
+import Nav from "./layouts/Nav";
 import Navigation from "./components/admin/Navigation";
 import AddProduct from "./components/admin/product/AddProduct";
 import ImageProduct from "./components/admin/product/ImageProduct";
 import ListProduct from "./components/admin/product/ListProduct";
+import UpdateProduct from "./components/admin/product/UpdateProduct";
+import UpdateImageProduct from "./components/admin/product/UpdateImageProduct";
 
 const Admin = () => {
   return (
@@ -41,8 +43,16 @@ const Admin = () => {
                 element={<AddProduct></AddProduct>}
               ></Route>
               <Route
+                path="/product/edit/:id"
+                element={<UpdateProduct></UpdateProduct>}
+              ></Route>
+              <Route
                 path="/product/add/images"
                 element={<ImageProduct></ImageProduct>}
+              ></Route>
+              <Route
+                path="/product/edit/images/:id"
+                element={<UpdateImageProduct></UpdateImageProduct>}
               ></Route>
               <Route path="/contact" element={<div>Contact</div>}></Route>
             </Route>

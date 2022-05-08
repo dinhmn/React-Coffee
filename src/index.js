@@ -10,8 +10,8 @@ ReactDOM.render(
   <React.StrictMode>
     {/* <App /> */}
     <BrowserRouter>
-      <Admin></Admin>
-      {/* <App></App> */}
+      {/* <Admin></Admin> */}
+      <App></App>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
