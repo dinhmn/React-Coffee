@@ -18,7 +18,7 @@ const Slider = () => {
             Lorem ipsum dolor sit amet consectetur
           </h4>
         </div>
-        <button className="px-6 py-3 font-semibold transition-all ease-in read-more bg-slate-800 hover:bg-secondary">
+        <button className="px-6 py-3 font-semibold transition-all ease-in read-more bg-slate-800 hover:bg-secondary rounded-[4px]">
           READ MORE
         </button>
       </div>

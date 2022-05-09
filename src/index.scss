@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap");
-
+@import "~video-react/styles/scss/video-react";
 @layer base {
   body {
     @apply bg-[#0f0f13] font-body text-white;
