@@ -2,20 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import CategoriesService from "../../services/CategoriesService";
-import ImageService from "../../services/ImageService";
 import ProductService from "../../services/ProductService";
 import Button from "../button/Button";
-import Input from "../input/Input";
 import InputProduct from "../input/InputProduct";
-import Textarea from "../textarea/Textarea";
 import TextareaProduct from "../textarea/TextareaProduct";
 
 const AddProduct = () => {
   const [loading, setLoading] = useState(true);
-  const [loading2, setLoading2] = useState(true);
   const [category, setCategory] = useState(null);
   const [cate, setCate] = useState(null);
-  const [tam, setTam] = useState({});
+
   const navigate = useNavigate();
   const [product, setProduct] = useState({
     id: "",
@@ -59,30 +55,27 @@ const AddProduct = () => {
     setProduct({ ...product, [e.target.name]: value });
   };
 
-  console.log(file);
+  const handleChangeUploadImage = (e) => {
+    e.preventDefault();
+    setFile(e.target.files[0]);
+  };
+
+  const {
+    handleSubmit,
+    formState: { errors },
+    control,
+  } = useForm();
+  const onSubmitHandler = (values) => {
+    console.log(values);
+  };
   const saveProduct = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    ProductService.saveProduct(product)
+    // formData.append("file", file, file.name);
+
+    ProductService.saveProduct(product, file)
       .then((response) => {})
       .catch((error) => {});
-    // formData.append("file", file, file.name);
-    // formData.append("title", product.title);
-    // formData.append("price", product.title);
-    // formData.append("priceSale", product.title);
-    // formData.append("shortDesc", product.title);
-    // formData.append("detailsDesc", product.title);
-    // formData.append("quantity", product.quantity);
-    // formData.append("product", product);
-    // ImageService.saveImage(formData)
-    //   .then((response) => {})
-    //   .catch((error) => {});
-
-    // formData.append("fileName", file.name);
-    // formData.append("downloadURL", `http://localhost:8080/download/4`);
-    // formData.append("fileName", file.name);
-    // formData.append("fileName", file.name);
-    // console.log(formData.get("product"));
 
     setProduct({
       id: "",
@@ -96,22 +89,15 @@ const AddProduct = () => {
       categoryId: "",
     });
     setFile({});
-    navigate("/product/add/images");
+    // navigate("/product/add/images");
   };
-
-  const {
-    handleSubmit,
-    formState: { errors },
-    control,
-  } = useForm();
-  const onSubmitHandler = (values) => {
-    console.log(values);
-  };
-
   return (
     <form
       onSubmit={handleSubmit(onSubmitHandler)}
       className="max-w-[1280px] mx-auto my-10"
+      method="post"
+      encType="multipart/form-data"
+      action="/"
     >
       <p className="mb-3 text-4xl font-bold text-center text-gray-200">
         Add Product
@@ -180,6 +166,13 @@ const AddProduct = () => {
         value={product.detailsDescription}
         handleChangeProduct={handleChangeProduct}
       ></TextareaProduct>
+      <InputProduct
+        label="Image"
+        name="fileImage"
+        control={control}
+        handleChangeProduct={handleChangeUploadImage}
+        type="file"
+      ></InputProduct>
       <div className="flex gap-5">
         <Button
           className="px-3 py-4 bg-blue-500 hover:bg-blue-700 "

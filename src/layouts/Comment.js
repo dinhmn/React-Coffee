@@ -9,7 +9,7 @@ const Comment = () => {
         Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas sed
         diam eget risus varius blandit sit amet non magna.
       </div>
-      <div></div>
+      <div>JANE DOE</div>
     </>
   );
 };

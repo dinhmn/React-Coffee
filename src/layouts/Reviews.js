@@ -1,5 +1,8 @@
 import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import styled from "styled-components";
+import "swiper/css";
+import Comment from "./Comment";
 
 // https://barista.qodeinteractive.com/elementor/wp-content/uploads/2017/01/home-3-parallax-2.jpg
 const StyleReviews = styled.div`
@@ -12,7 +15,15 @@ const StyleReviews = styled.div`
   padding: 50px 0;
 `;
 const Reviews = () => {
-  return <StyleReviews></StyleReviews>;
+  return (
+    <StyleReviews>
+      <Swiper grabCursor={"true"} spaceBetween={40} slidesPerView={"auto"}>
+        <SwiperSlide>
+          <Comment></Comment>
+        </SwiperSlide>
+      </Swiper>
+    </StyleReviews>
+  );
 };
 
 export default Reviews;

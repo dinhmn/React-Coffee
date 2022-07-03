@@ -4,6 +4,7 @@ import Slider from "./components/slides/Slider";
 import Introduce from "./layouts/Introduce";
 import styled from "styled-components";
 import Favorite from "./layouts/Favorite";
+import Reviews from "./layouts/Reviews";
 
 const StyleIntroduce = styled.div`
   width: 100%;
@@ -26,6 +27,7 @@ function App() {
         <Introduce className="container w-[1280px] m-auto mt-8 mb-8 gap-x-10 flex items-center justify-center"></Introduce>
       </StyleIntroduce>
       <Favorite className="m-auto my-8 page-container"></Favorite>
+      <Reviews></Reviews>
     </div>
   );
 }
