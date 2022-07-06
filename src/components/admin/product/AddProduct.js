@@ -13,6 +13,9 @@ const AddProduct = () => {
   const [cate, setCate] = useState(null);
 
   const navigate = useNavigate();
+  const [multipleFile, setMultipleFile] = useState([]);
+  const [preview, setPreview] = useState();
+  const [previewMultiple, setPreviewMultiple] = useState([]);
   const [product, setProduct] = useState({
     id: "",
     title: "",
@@ -35,31 +38,33 @@ const AddProduct = () => {
     };
     fetchData();
   }, [product.categoryId]);
-  const [file, setFile] = useState({
-    // fileImage: "",
-  });
+  const [file, setFile] = useState({});
   const handleChangeCate = (e) => {
     setCate(e.target.value);
-    // category.forEach((element) => {
-    //   if (element.id == cate) {
-    //     setProduct({ ...product, categories: element });
-    //     // setTam(element);
-    //   }
-    // });
   };
-  // console.log(cate);
   const handleChangeProduct = (e) => {
     const value = e.target.value;
-
-    // setProduct({ ...product, categoryId: cate });
     setProduct({ ...product, [e.target.name]: value });
   };
 
   const handleChangeUploadImage = (e) => {
     e.preventDefault();
     setFile(e.target.files[0]);
+    setPreview(URL.createObjectURL(e.target.files[0]));
   };
+  const handleChangeUploadMultipleImages = (e) => {
+    // e.preventDefault();
+    if (!e.target.files) return;
+    setMultipleFile([...multipleFile, ...e.target.files]);
+    const selectedFile = [];
+    const targetFiles = e.target.files;
+    const targetFileObject = [...targetFiles];
+    targetFileObject.map((file) => {
+      return selectedFile.push(URL.createObjectURL(file));
+    });
 
+    setPreviewMultiple(selectedFile);
+  };
   const {
     handleSubmit,
     formState: { errors },
@@ -71,9 +76,13 @@ const AddProduct = () => {
   const saveProduct = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    // formData.append("file", file, file.name);
-
-    ProductService.saveProduct(product, file)
+    const obj = JSON.stringify(product);
+    formData.append("product", obj);
+    formData.append("file", file, file.name);
+    for (const key of Object.keys(multipleFile)) {
+      formData.append("files", multipleFile[key], multipleFile[key].name);
+    }
+    ProductService.saveProduct(formData)
       .then((response) => {})
       .catch((error) => {});
 
@@ -85,11 +94,10 @@ const AddProduct = () => {
       shortDescription: "",
       detailsDescription: "",
       quantity: "",
-      // categories: {},
       categoryId: "",
     });
     setFile({});
-    // navigate("/product/add/images");
+    navigate("/product");
   };
   return (
     <form
@@ -109,8 +117,6 @@ const AddProduct = () => {
           id="categoryId"
           className="w-full p-4 mt-3 mb-3 text-black transition-all bg-white border border-gray-100 rounded-md outline-none focus:border-blue-500"
           onChange={handleChangeProduct}
-          // onChange={(e) => setCate(e.target.value)}
-          // onChange={handleChangeCate}
         >
           {!loading &&
             category.map((cat) => (
@@ -173,6 +179,23 @@ const AddProduct = () => {
         handleChangeProduct={handleChangeUploadImage}
         type="file"
       ></InputProduct>
+      <div className="object-cover w-[500px] h-auto m-auto">
+        <img src={preview} alt="" />
+        {/* product.length>0 ? product. : */}
+      </div>
+      <InputProduct
+        label="Product Image"
+        name="multipleImage"
+        control={control}
+        handleChangeProduct={handleChangeUploadMultipleImages}
+        type="file"
+        multiple="multiple"
+      ></InputProduct>
+      <div>
+        {multipleFile.map((url) => {
+          <img src={url} alt="" />;
+        })}
+      </div>
       <div className="flex gap-5">
         <Button
           className="px-3 py-4 bg-blue-500 hover:bg-blue-700 "

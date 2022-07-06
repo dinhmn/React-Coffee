@@ -2,8 +2,8 @@ import axios from "axios";
 
 const PRODUCT_API_BASE_URL = "http://localhost:8080/api/p1/product";
 class ProductService {
-  saveProduct(product, file) {
-    return axios.post(PRODUCT_API_BASE_URL, product, file).then((res) => {
+  saveProduct(formData) {
+    return axios.post(PRODUCT_API_BASE_URL, formData).then((res) => {
       console.log(res);
     });
   }
@@ -16,8 +16,8 @@ class ProductService {
   getProductById(id) {
     return axios.get(PRODUCT_API_BASE_URL + "/" + id);
   }
-  updateProductById(product, id) {
-    return axios.put(PRODUCT_API_BASE_URL + "/" + id, product);
+  updateProductById(id, formData) {
+    return axios.put(PRODUCT_API_BASE_URL + "/" + id, formData);
   }
 }
 export default new ProductService();
