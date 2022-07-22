@@ -7,11 +7,14 @@ const Nav = () => {
         <div className="inline-block text-4xl font-bold logo">Coffee</div>
       </div>
       <div className="flex items-center justify-center search">
-        <div className="flex items-center justify-center text-xl font-bold gap-x-5 menu">
-          <span className="px-4">Home</span>
+        <div className="flex items-center justify-center text-lg font-bold gap-x-5 menu text-amber-700">
+          <span className="px-4">Cà phê</span>
+          <span className="px-4">Trà</span>
           <span className="px-4">Menu</span>
-          <span className="px-4">About</span>
-          <span className="px-4">Contact</span>
+          <span className="px-4">Chuyện Nhà</span>
+          <span className="px-4">Cảm hứng CloundFee</span>
+          <span className="px-4">Cửa hàng</span>
+          <span className="px-4">Tuyển dụng</span>
         </div>
         <div className="flex">
           <button
