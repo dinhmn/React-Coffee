@@ -5,7 +5,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Topbar from "./components/Sidebar/Topbar";
 import { Route, Routes } from "react-router-dom";
 import UpdateCategory from "./components/admin/category/UpdateCategory";
-import Nav from "./layouts/Nav";
+import Nav from "./layouts/common/Nav";
 import Navigation from "./components/admin/Navigation";
 import AddProduct from "./components/admin/product/AddProduct";
 import ListProduct from "./components/admin/product/ListProduct";

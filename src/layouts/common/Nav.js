@@ -1,20 +1,33 @@
 import React from "react";
+import { Link, NavLink, Outlet } from "react-router-dom";
 
 const Nav = () => {
   return (
     <div className="flex items-center justify-between px-10">
       <div className="flex items-center justify-start px-5 py-3 gap-x-10">
-        <div className="inline-block text-4xl font-bold logo">Coffee</div>
+        <NavLink
+          to={"/home"}
+          className="inline-block text-4xl font-bold logo text-amber-700"
+        >
+          The Coffee House
+        </NavLink>
       </div>
       <div className="flex items-center justify-center search">
         <div className="flex items-center justify-center text-lg font-bold gap-x-5 menu text-amber-700">
-          <span className="px-4">Cà phê</span>
-          <span className="px-4">Trà</span>
-          <span className="px-4">Menu</span>
-          <span className="px-4">Chuyện Nhà</span>
-          <span className="px-4">Cảm hứng CloundFee</span>
-          <span className="px-4">Cửa hàng</span>
-          <span className="px-4">Tuyển dụng</span>
+          <span className="px-6">Cà phê</span>
+          <span className="px-6">Trà</span>
+          <NavLink
+            to={"/menu"}
+            className={({ isActive }) =>
+              isActive ? "text-white px-6 bg-amber-700 py-2" : "px-6"
+            }
+          >
+            Menu
+          </NavLink>
+          <span className="px-6">Chuyện Nhà</span>
+          <span className="px-6">Cảm hứng CloundFee</span>
+          <span className="px-6">Cửa hàng</span>
+          <span className="px-6">Tuyển dụng</span>
         </div>
         <div className="flex">
           <button
