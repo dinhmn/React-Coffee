@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const CATEGORY_API_BASE_URL = "http://localhost:8080/api/v1/category";
+const CATEGORY_API_BASE_URL = "http://localhost:8088/api/v1/category";
 class CategoriesService {
   saveCategories(category) {
     return axios.post(CATEGORY_API_BASE_URL, category);

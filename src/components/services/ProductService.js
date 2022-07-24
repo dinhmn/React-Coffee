@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const PRODUCT_API_BASE_URL = "http://localhost:8080/api/p1/product";
+const PRODUCT_API_BASE_URL = "http://localhost:8088/api/admin/product";
 class ProductService {
   saveProduct(formData) {
     return axios.post(PRODUCT_API_BASE_URL, formData).then((res) => {

@@ -99,6 +99,7 @@ const AddProduct = () => {
     setFile({});
     navigate("/product");
   };
+
   return (
     <form
       onSubmit={handleSubmit(onSubmitHandler)}
@@ -124,6 +125,7 @@ const AddProduct = () => {
                 value={cat.id}
                 key={cat.id}
                 className="p-4 text-black transition-all bg-white border border-gray-100 rounded-md outline-none focus:border-blue-500"
+                selected={cat.id === product.categoryId ? true : false}
               >
                 {cat.categoriesName}
               </option>

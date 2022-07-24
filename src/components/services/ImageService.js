@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const IMAGE_API_BASE_URL = "http://localhost:8080/upload";
+const IMAGE_API_BASE_URL = "http://localhost:8088/upload";
 
 class ImageService {
   saveImage(formData) {

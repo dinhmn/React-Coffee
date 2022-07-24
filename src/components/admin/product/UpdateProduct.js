@@ -51,10 +51,6 @@ const UpdateProduct = () => {
     };
     fetchData();
   }, []);
-  const handleChangeCate = (e) => {
-    setCate(e.target.value);
-  };
-
   const handleChangeProduct = (e) => {
     setProduct({ ...product, [e.target.name]: e.target.value });
   };
@@ -76,8 +72,6 @@ const UpdateProduct = () => {
 
     setPreviewMultiple(selectedFile);
   };
-
-  console.log(file);
   const updateProduct = (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -101,7 +95,7 @@ const UpdateProduct = () => {
       categoryId: "",
     });
     setFile({});
-    navigate(`/product/edit/images/${id}`);
+    navigate(`/product`);
   };
 
   const {
@@ -128,8 +122,6 @@ const UpdateProduct = () => {
           id="categoryId"
           className="w-full p-4 mt-3 mb-3 text-black transition-all bg-white border border-gray-100 rounded-md outline-none focus:border-blue-500"
           onChange={handleChangeProduct}
-          // onChange={(e) => setCate(e.target.value)}
-          // onChange={handleChangeCate}
         >
           {!loading &&
             category.map((cat) => (
@@ -137,6 +129,7 @@ const UpdateProduct = () => {
                 value={cat.id}
                 key={cat.id}
                 className="p-4 text-black transition-all bg-white border border-gray-100 rounded-md outline-none focus:border-blue-500"
+                selected={cat.id === product.categoryId ? true : false}
               >
                 {cat.categoriesName}
               </option>
