@@ -1,6 +1,6 @@
 import React from "react";
 
-const Item = ({ price, image, button, children, props }) => {
+const Item = ({ image, button, children, props }) => {
   return (
     <div className="bg-[#333341] flex flex-col my-5 cursor-pointer gap-y-2 p-4 rounded-md">
       <div>
