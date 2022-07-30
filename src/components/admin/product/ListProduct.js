@@ -36,6 +36,7 @@ const ListProduct = () => {
     e.preventDefault();
     navigate(`/product/edit/${id}`);
   };
+  console.log(product);
   return (
     <div className="w-full h-full mx-auto my-8">
       <div className="flex w-full h-auto py-3 text-lg gap-x-5">

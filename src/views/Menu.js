@@ -8,21 +8,21 @@ import Taskbar from "../layouts/menuTask/Taskbar";
 
 const Menu = () => {
   const { coffee, setCoffee } = useCard();
+  // const [coffee, setCoffee] = useState([]);
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
         const response = await ProductAPI.getAllProduct();
+        console.log(response.data);
         setCoffee(response.data);
       } catch (error) {}
       setLoading(false);
     };
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(coffee);
+
   return (
     <div className="grid grid-cols-4 gap-4 page-container">
       <Taskbar></Taskbar>

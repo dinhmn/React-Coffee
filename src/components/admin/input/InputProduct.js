@@ -4,6 +4,7 @@ import Input from "./Input";
 const InputProduct = ({
   name,
   label,
+  className = "",
   handleChangeProduct,
   control,
   value,
@@ -20,7 +21,7 @@ const InputProduct = ({
         id={name}
         control={control}
         type="text"
-        className="text-black w-[1000px]"
+        className={`text-black w-[1000px] ${className}`}
         value={value}
         onChange={handleChangeProduct}
         {...props}

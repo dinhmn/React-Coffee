@@ -7,4 +7,4 @@ class ProductAPI {
     return axios.get(PRODUCT_API_BASE_URL);
   }
 }
-export default ProductAPI;
+export default new ProductAPI();

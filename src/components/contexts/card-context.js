@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { createContext, useContext } from "react";
+import ProductAPI from "../../layouts/callAPI/ProductAPI";
 
 const CardContext = createContext();
-
+// const response = ProductAPI.getAllProduct();
 function CardProvider(props) {
   const [coffee, setCoffee] = useState([]);
   const [card, setCard] = useState([]);
