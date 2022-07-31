@@ -6,14 +6,16 @@ const Topbar = () => {
   const [user, setUser] = useState(true);
   return (
     <div className="w-full h-[50px] bg-white text-black">
-      <div className="grid grid-cols-5 gap-x-10 px-10 items-center justify-between h-full">
+      <div className="grid items-center justify-between h-full grid-cols-5 px-10 gap-x-10">
         <div className="col-span-2 gap-x-[100px]">
           <div className="grid grid-cols-2 gap-x-10">
-            <span className="text-3xl font-bold text-blue-900">lamaadin</span>
+            <span className="text-3xl font-bold tracking-widest text-amber-800">
+              The Coffee
+            </span>
             <form action="" method="get" className="relative">
               <input
                 type="text"
-                className="border relative w-full px-2 py-1 rounded-md focus:border-non"
+                className="relative w-full px-2 py-1 border rounded-md focus:border-non"
                 placeholder="Search"
               />
               <button className="absolute z-99 top-[6px] right-2" type="submit">
@@ -37,8 +39,8 @@ const Topbar = () => {
           </div>
         </div>
         <div></div>
-        <div className="col-span-2 flex justify-end items-center gap-x-10">
-          <div className="flex justify-center items-center gap-x-6 gap-y-1 font-bold text-xl">
+        <div className="flex items-center justify-end col-span-2 gap-x-10">
+          <div className="flex items-center justify-center text-xl font-bold gap-x-6 gap-y-1">
             <button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +60,7 @@ const Topbar = () => {
             </button>
             <button>
               {user ? (
-                <div className="flex justify-center items-center gap-x-2 font-bold text-xl">
+                <div className="flex items-center justify-center text-xl font-bold gap-x-2">
                   <div>
                     <img
                       src="https://cdn.pixabay.com/photo/2020/04/30/03/26/rufous-5111261_960_720.jpg"
@@ -66,7 +68,7 @@ const Topbar = () => {
                       className="w-[30px] h-[30px] rounded-full"
                     />
                   </div>
-                  <small>Ai Commic</small>
+                  <small>Hi, Sara</small>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"

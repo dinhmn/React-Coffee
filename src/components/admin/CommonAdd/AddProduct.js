@@ -180,13 +180,7 @@ const AddProduct = () => {
         control={control}
         handleChangeProduct={handleChangeUploadImage}
         type="file"
-        className="block w-full text-sm text-slate-500
-                    file:mr-4 file:py-1 file:px-4
-                    file:rounded-full file:border-0
-                    file:text-sm file:font-semibold
-                    file:bg-violet-100 file:text-violet-700
-                    hover:file:bg-violet-200 cursor-pointer
-                  "
+        className="block w-full text-sm cursor-pointer text-slate-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-100 file:text-violet-700 hover:file:bg-violet-200"
       ></InputProduct>
       <div className="object-cover w-[500px] h-auto m-auto">
         <img src={preview} alt="" />
@@ -199,13 +193,7 @@ const AddProduct = () => {
         handleChangeProduct={handleChangeUploadMultipleImages}
         type="file"
         multiple="multiple"
-        className="block w-full text-sm text-slate-500
-                    file:mr-4 file:py-1 file:px-4
-                    file:rounded-full file:border-0
-                    file:text-sm file:font-semibold
-                    file:bg-violet-100 file:text-violet-700
-                    hover:file:bg-violet-200 cursor-pointer
-                  "
+        className="block w-full text-sm cursor-pointer text-slate-500 file:mr-4 file:py-1 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-100 file:text-violet-700 hover:file:bg-violet-200"
       ></InputProduct>
       <div>
         {multipleFile.map((url) => {

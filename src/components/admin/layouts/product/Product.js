@@ -2,7 +2,6 @@ import React from "react";
 import Button from "../button/Button";
 
 const Product = ({ product, deleteProduct, editProduct }) => {
-  console.log(product);
   return (
     <tr className="bg-white" key={product.id}>
       <td className="px-6 py-4 text-center whitespace-normal">

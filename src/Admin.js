@@ -1,28 +1,28 @@
 import React from "react";
-import AddCategory from "./components/admin/category/AddCategory";
-import CategoryList from "./components/admin/category/CategoryList";
-import Sidebar from "./components/Sidebar/Sidebar";
+import AddCategory from "./components/admin/CommonAdd/AddCategory";
 import Topbar from "./components/Sidebar/Topbar";
 import { Route, Routes } from "react-router-dom";
-import UpdateCategory from "./components/admin/category/UpdateCategory";
-import Nav from "./layouts/common/Nav";
+import UpdateCategory from "./components/admin/CommonUpdate/UpdateCategory";
 import Navigation from "./components/admin/Navigation";
-import AddProduct from "./components/admin/product/AddProduct";
-import ListProduct from "./components/admin/product/ListProduct";
-import UpdateProduct from "./components/admin/product/UpdateProduct";
+import AddProduct from "./components/admin/CommonAdd/AddProduct";
+import UpdateProduct from "./components/admin/CommonUpdate/UpdateProduct";
+import ListCategory from "./components/admin/CommonList/ListCategory";
+import ListProduct from "./components/admin/CommonList/ListProduct";
 
 const Admin = () => {
   return (
-    <div>
+    <div className="h-full">
       <Topbar></Topbar>
-      <div className="flex">
-        <Navigation></Navigation>
-        <div className="flex flex-col w-full h-screen m-10">
+      <div className="flex shadow-md">
+        <div className={`bg-white`}>
+          <Navigation></Navigation>
+        </div>
+        <div className="flex flex-col w-full m-10">
           <Routes>
             <Route path="/">
               <Route
                 path="/category"
-                element={<CategoryList></CategoryList>}
+                element={<ListCategory></ListCategory>}
               ></Route>
               <Route
                 path="/addCategory"

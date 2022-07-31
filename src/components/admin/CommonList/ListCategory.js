@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, parsePath, useNavigate } from "react-router-dom";
 import CategoriesService from "../../services/CategoriesService";
-import Category from "./Category";
+import Category from "../CommonChild/Category";
 
 const CategoryList = () => {
   const navigate = useNavigate();
