@@ -57,7 +57,7 @@ const Nav = () => {
           />
         </div>
         <div className="flex items-center justify-between gap-5 px-3 mx-3">
-          <div className="gap-5 cursor-pointer cart">
+          <div className="relative gap-5 cursor-pointer cart">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-6 h-6"
@@ -72,8 +72,11 @@ const Nav = () => {
                 d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
               />
             </svg>
+            <p className="absolute flex items-center justify-center w-4 h-4 font-bold text-center text-red-700 bg-white rounded-md -top-1 text-md -right-2">
+              0
+            </p>
           </div>
-          <div className="relative gap-5 cursor-pointer account">
+          <div className="gap-5 cursor-pointer account">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -86,9 +89,6 @@ const Nav = () => {
                 clipRule="evenodd"
               />
             </svg>
-            <p className="absolute flex items-center justify-center w-4 h-4 font-bold text-center text-red-700 bg-white rounded-md -top-1 text-md -right-2">
-              0
-            </p>
           </div>
         </div>
       </div>

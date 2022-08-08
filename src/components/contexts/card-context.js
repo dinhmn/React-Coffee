@@ -3,11 +3,17 @@ import { createContext, useContext } from "react";
 import ProductAPI from "../../layouts/callAPI/ProductAPI";
 
 const CardContext = createContext();
-// const response = ProductAPI.getAllProduct();
+const response = ProductAPI.getAllProduct();
 function CardProvider(props) {
-  const [coffee, setCoffee] = useState([]);
+  const [coffee, setCoffee] = useState(response);
+  console.log(coffee);
   const [card, setCard] = useState([]);
   const [favorite, setFavorite] = useState([]);
+
+  function addToCart(newItem) {
+    setCard(newItem);
+  }
+
   const value = { coffee, card, favorite, setCoffee, setCard, setFavorite };
   return <CardContext.Provider value={value} {...props}></CardContext.Provider>;
 }
