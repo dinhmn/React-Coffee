@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom";
 import Menu from "./views/Menu";
 import NavAddress from "./layouts/common/NavAddress";
 import { CardProvider } from "./components/contexts/card-context";
+import SignUp from "./views/SignUp";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
               </CardProvider>
             }
           ></Route>
+          <Route path="signUp" element={<SignUp></SignUp>}></Route>
         </Route>
       </Routes>
     </div>

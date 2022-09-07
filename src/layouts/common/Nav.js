@@ -76,7 +76,7 @@ const Nav = () => {
               0
             </p>
           </div>
-          <div className="gap-5 cursor-pointer account">
+          <NavLink to={"/signUp"} className="gap-5 cursor-pointer account">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -89,7 +89,7 @@ const Nav = () => {
                 clipRule="evenodd"
               />
             </svg>
-          </div>
+          </NavLink>
         </div>
       </div>
     </div>
