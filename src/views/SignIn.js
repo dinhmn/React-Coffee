@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import Button from "../components/admin/button/Button";
+import Checkbox from "../components/admin/checkbox/Checkbox";
 import FormGroup from "../components/admin/form/FormGroup";
 import Input from "../components/admin/input/Input";
 
@@ -20,13 +21,13 @@ const Login = styled.div`
   padding: 0 100px;
 `;
 
-const SignUp = () => {
+const SignIn = () => {
+  const [check, setCheck] = useState(false);
   const [user, setUser] = useState({
     id: "",
     firstName: "",
     lastName: "",
     email: "",
-    username: "",
     password: "",
   });
   const handleChangeUser = (e) => {
@@ -44,48 +45,25 @@ const SignUp = () => {
   return (
     <Login>
       <div className="flex flex-col justify-center items-start m-10 gap-5 w-[40%] h-[80%] rounded-lg bg-slate-700 bg-opacity-60 p-10">
-        <h5 className="text-slate-200 text-sm uppercase tracking-[3px]">
-          START FOR FREE
-        </h5>
         <h1 className="text-[40px] font-bold">
-          Create new account<span className="text-blue-600">.</span>
+          Sign in to The coffee<span className="text-blue-600">.</span>
         </h1>
-        <small className="text-[12px] tracking-widest">
-          Already a memeber?{" "}
-          <NavLink to="/signIn" className="text-blue-400">
-            Log in
-          </NavLink>
-        </small>
+
+        <div className="flex justify-center items-center gap-5 w-full">
+          <div className="py-2 px-3 bg-red-500 font-bold tracking-widest w-[110px] text-center text-white rounded-[4px]">
+            Google
+          </div>
+          <div className="py-2 px-3 bg-blue-600 font-bold tracking-widest w-[110px] text-center text-white rounded-[4px]">
+            Facebook
+          </div>
+        </div>
+        <div className="w-full flex justify-center items-center">
+          <div className="w-[400px] h-[2px] bg-slate-400"></div>
+        </div>
         <form
           action=""
-          className="flex flex-col justify-center items-center gap-5 w-full"
+          className="flex flex-col justify-center items-start gap-5 w-full"
         >
-          <div className="flex justify-center items-center gap-10 w-full">
-            <FormGroup
-              control={control}
-              handleChangeUser={handleChangeUser}
-              value={user.firstName}
-              name="firstName"
-            >
-              First name
-            </FormGroup>
-            <FormGroup
-              control={control}
-              handleChangeUser={handleChangeUser}
-              value={user.lastName}
-              name="lastName"
-            >
-              Last name
-            </FormGroup>
-          </div>
-          <FormGroup
-            control={control}
-            handleChangeUser={handleChangeUser}
-            value={user.email}
-            name="email"
-          >
-            Email
-          </FormGroup>
           <FormGroup
             control={control}
             handleChangeUser={handleChangeUser}
@@ -103,12 +81,16 @@ const SignUp = () => {
           >
             Password
           </FormGroup>
+          <Checkbox check={check} setCheck={setCheck}></Checkbox>
+          <small className="text-[12px] tracking-widest ml-3">
+            Do you have an new account?{" "}
+            <NavLink to="signUp" className="text-blue-400">
+              Sign Up
+            </NavLink>
+          </small>
           <div className="flex gap-2 w-full">
-            <Button className="text-base px-5 py-3 rounded-full bg-slate-500 hover:bg-slate-600 transition-all">
-              Change method
-            </Button>
-            <Button className="text-base px-5 py-1 rounded-full bg-blue-500 hover:bg-blue-600 transition-all">
-              Create account
+            <Button className="text-base px-5 py-3 rounded-full bg-blue-500 hover:bg-blue-600 transition-all">
+              Log In
             </Button>
           </div>
         </form>
@@ -118,4 +100,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;

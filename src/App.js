@@ -5,6 +5,7 @@ import Menu from "./views/Menu";
 import NavAddress from "./layouts/common/NavAddress";
 import { CardProvider } from "./components/contexts/card-context";
 import SignUp from "./views/SignUp";
+import SignIn from "./views/SignIn";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             }
           ></Route>
           <Route path="signUp" element={<SignUp></SignUp>}></Route>
+          <Route path="signIn" element={<SignIn></SignIn>}></Route>
         </Route>
       </Routes>
     </div>
