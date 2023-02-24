@@ -6,6 +6,7 @@ import NavAddress from "./layouts/common/NavAddress";
 import { CardProvider } from "./components/contexts/card-context";
 import SignUp from "./views/SignUp";
 import SignIn from "./views/SignIn";
+import Product from "./views/Product";
 
 function App() {
   return (
@@ -20,6 +21,14 @@ function App() {
             element={
               <CardProvider>
                 <Menu></Menu>
+              </CardProvider>
+            }
+          ></Route>
+          <Route
+            path="/product/{product-name}"
+            element={
+              <CardProvider>
+                <Product></Product>
               </CardProvider>
             }
           ></Route>
